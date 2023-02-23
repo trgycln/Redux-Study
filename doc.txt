@@ -1,0 +1,43 @@
+1. Redux Yapısını Kurmak (Structure)
+
+	a. İhtiyaç duyulan kütüphanelerin yüklenmesi
+		-npm install redux,
+		-npm install react-redux	
+
+	b.	React-redux klasör yapısının kurulması,
+		+ Redux klasörü
+			- ACTİONS klasörü
+			- REDUCERS klasörü
+			- STORE.js
+
+	c.	STORE'da saklanacak STATE'lerin belirlenmesi,
+		-Birden fazla component veya sayfada ihtiyaç duyacağımız state'leri store'a alacağız.
+
+	d.	Her STATE için bir REDUCER olmalı,
+
+	e. Öncelikli olarak temel haliyle bir REDUCER oluşturulur.
+		-REDUCER bir fonsiyondur,
+		-İki parametre alır, STATE ve ACTİON.
+		-STATE'e başlangıç değeri atanır (const initialState)
+
+	f. STORE oluşturulur;
+		-	import {createStore} form "redux";
+		-	Oluşturulan REDUCER'lar import edilir,
+		-	REDUCER'lar tek bir REDUCER içinde birleştitirilir. (rootReducer) import {combineReducer} from "redux;
+		-	STORE oluşturulur ve export edilir.
+
+	g. redux altyapısı kuruldu. Ancak react uygulamasına henüz tanıtılmadı.
+
+	h. redux'ın React'a tanıtılması;
+
+		-	"react-redux" kütüphanesinden "Provider" componenti import edilir
+			(import {Provider} from "react-redux")
+		-	App componenti Provider ile sarmalanır, store isimli prop alır. 
+			(store={store})
+		- 	Oluşturulan STORE import edilir.
+
+2. REDUX yapısı kurulduktan sonra uygulamanın işleyişi
+	a. ilgili componentten subscribe olma 
+		-	useSelector isimli hook import edilir,
+		-	consructor kısmında const storeState = useSelector ((state)=>state) callback function çağrılır.
+	
